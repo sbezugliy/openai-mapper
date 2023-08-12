@@ -2,7 +2,7 @@
 
 module Openai
   module Mapper
-    class BaseMapper < Shale::Mapper
+    class BaseMapper < ::Shale::Mapper
       def from_timestamp(model, value)
         model.created = Time.at(value)
       end

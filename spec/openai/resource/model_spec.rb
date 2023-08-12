@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Openai::Resource::Model do
+RSpec.describe Openai::Resource::Model, tag: :request do
   subject!(:connection) { described_class.new }
 
   let(:body) { File.read(File.join(__dir__, "../../mocks/resource/model_text-davinci-001.json")) }

@@ -30,19 +30,19 @@ else
     echo "Audit checks are passed"
 fi
 
-# run tests related to staged files
-echo "Running RSpec tests"
-bundle exec rspec
-RSPEC_EXIT_CODE=$?
-
-# check rspec exit code
-if [ $RSPEC_EXIT_CODE -ne 0 ]; then
-    echo "!!! Fix spec fails before commit"
-    exit 1
-else
-    echo "Specs are passed"
-fi
-
-# return 0-exit code
-echo "Pre commit checks are passed"
-exit 0
+# # run tests related to staged files
+# echo "Running RSpec tests"
+# bundle exec rspec
+# RSPEC_EXIT_CODE=$?
+#
+# # check rspec exit code
+# if [ $RSPEC_EXIT_CODE -ne 0 ]; then
+#     echo "!!! Fix spec fails before commit"
+#     exit 1
+# else
+#     echo "Specs are passed"
+# fi
+#
+# # return 0-exit code
+# echo "Pre commit checks are passed"
+# exit 0

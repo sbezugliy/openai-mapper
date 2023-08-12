@@ -13,7 +13,7 @@ module Openai
         attribute :n, ::Shale::Type::Integer, default: -> { 1 }
         attribute :stream, ::Shale::Type::Boolean, default: -> { false }
         attribute :stop, ::Shale::Type::String, default: -> {} # Selector of types
-        attribute :max_tokens, ::Shale::Type::Integer, default: -> { 999 }
+        attribute :max_tokens, ::Shale::Type::Integer, default: -> { 5 }
         attribute :presence_penalty, ::Shale::Type::Float, default: -> { 0 }
         attribute :frequency_penalty, ::Shale::Type::Float, default: -> { 0 }
         attribute :logit_bias, ::Shale::Type::String, default: -> {}
