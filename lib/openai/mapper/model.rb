@@ -5,10 +5,10 @@ module Openai
     class Model < BaseMapper
       attribute :id, ::Shale::Type::String
       attribute :object, ::Shale::Type::String
-      attribute :root, ::Shale::Type::String
-      attribute :parent, ::Shale::Type::String
       attribute :created, ::Shale::Type::Time
       attribute :owned_by, ::Shale::Type::String
+      attribute :root, ::Shale::Type::String
+      attribute :parent, ::Shale::Type::String
       attribute :permission, ::Openai::Mapper::ModelPermission, collection: true
 
       json do
