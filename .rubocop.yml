@@ -1,0 +1,83 @@
+# The behavior of RuboCop can be controlled via the .rubocop.yml
+# configuration file. It makes it possible to enable/disable
+# certain cops (checks) and to alter their behavior if they accept
+# any parameters. The file can be placed either in your home
+# directory or in some project directory.
+#
+# RuboCop will start looking for the configuration file in the directory
+# where the inspected file is and continue its way up to the root directory.
+#
+# See https://docs.rubocop.org/rubocop/configuration
+
+
+require:
+  - standard
+  - standard-performance
+  - rubocop
+  - rubocop-rspec
+  - rubocop-rake
+  - rubocop-performance
+  - rubocop-packs
+
+inherit_gem:
+  standard: config/base.yml
+
+AllCops:
+  Exclude:
+    - 'bin/bundle'
+    - '.git/**/*'
+    - '.git-hooks/**/*'
+    - vendor/**/*
+  TargetRubyVersion: 3.2
+  NewCops: enable
+  
+
+RSpec:
+  Enabled: true # enable rubocop-rspec cops
+  
+RSpec/DescribeClass:
+  Enabled: false # ignore missing comments on classes
+
+# Bundler/DuplicatedGem:
+  # Enabled: false
+
+Metrics/BlockLength:
+  Max: 250
+  Include:
+    - spec/**/*_spec.rb
+
+Style/Documentation:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 15
+  Include:
+      - spec/**/*_spec.rb
+
+RSpec/MultipleExpectations:
+  Max: 5
+  Include:
+    - spec/requests/**/*_spec.rb
+
+RSpec/PendingWithoutReason:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 15
+  Include:
+    - spec/**/*_spec.rb
+
+Lint/ShadowedArgument:
+  Enabled: true
+  Exclude:
+    - app/models/google/file.rb
+
+RSpec/VariableName:
+  Enabled: true
+  Exclude:
+    - spec/requests/**/*_spec.rb
+
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - app/views/layouts/*_layout.rb
