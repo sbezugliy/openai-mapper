@@ -26,7 +26,6 @@ GEM
       rspec (~> 3.0)
       rspec-files (~> 1.0)
       rspec-memory (~> 1.0)
-    brakeman (6.0.1)
     bundler-audit (0.9.1)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
@@ -87,7 +86,6 @@ GEM
     ptools (1.5.0)
     public_suffix (5.0.3)
     racc (1.7.1)
-    rack (3.0.8)
     rainbow (3.1.1)
     rake (13.0.6)
     regexp_parser (2.8.1)
@@ -135,10 +133,6 @@ GEM
     rubocop-performance (1.18.0)
       rubocop (>= 1.7.0, < 2.0)
       rubocop-ast (>= 0.4.0)
-    rubocop-rails (2.20.2)
-      activesupport (>= 4.2.0)
-      rack (>= 1.1)
-      rubocop (>= 1.33.0, < 2.0)
     rubocop-rake (0.6.0)
       rubocop (~> 1.0)
     rubocop-rspec (2.23.2)
@@ -198,7 +192,6 @@ PLATFORMS
 
 DEPENDENCIES
   async-rspec (~> 1.2)
-  brakeman
   bundler-audit
   dawnscanner
   dotenv
@@ -210,7 +203,6 @@ DEPENDENCIES
   rubocop-factory_bot
   rubocop-packs
   rubocop-performance (~> 1.18.0)
-  rubocop-rails
   rubocop-rake
   rubocop-rspec
   ruby_audit
