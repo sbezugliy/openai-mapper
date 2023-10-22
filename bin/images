@@ -13,9 +13,9 @@ dalle.request(
   n: 5,
   size: "1024x1024",
   user: "s.bezugliy@codenv.top",
-  response_format: "b64_json"
+  response_format: "url"
 )
 
-pp chat.data.inspect
+pp dalle.data.inspect
 
 

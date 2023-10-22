@@ -2,11 +2,12 @@ module Openai
   module Images
     class Create < ::Openai::Resource::ApiResource
       def initialize
-        @path = "/v1/images/create"
+        @path = "/v1/images/generations"
         super()
       end
 
-      def resource(request)
+
+      def request(**request)
         @response = @connection.post(
           path: @path,
           body: ::Openai::Request::Images::Create.new(**request).to_json
