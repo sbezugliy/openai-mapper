@@ -2,7 +2,7 @@
 
 module Openai
   module Mapper
-    class Usage < BaseMapper
+    class Usage < ::Openai::Mapper::BaseMapper
       attribute :prompt_tokens, ::Shale::Type::Integer
       attribute :completion_tokens, ::Shale::Type::Integer
       attribute :total_tokens, ::Shale::Type::Integer

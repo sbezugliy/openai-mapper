@@ -2,7 +2,7 @@
 
 module Openai
   module Mapper
-    class Model < BaseMapper
+    class Model < ::Openai::Mapper::BaseMapper
       attribute :id, ::Shale::Type::String
       attribute :object, ::Shale::Type::String
       attribute :created, ::Shale::Type::Time

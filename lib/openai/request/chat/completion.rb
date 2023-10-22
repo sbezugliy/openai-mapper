@@ -1,9 +1,9 @@
 # typed: false
 
 module Openai
-  module Mapper
+  module Request
     module Chat
-      class Request < BaseMapper
+      class Completion < ::Openai::Mapper::BaseMapper
         attribute :model, ::Shale::Type::String
         attribute :messages, ::Openai::Mapper::Message, collection: true
         attribute :functions, ::Openai::Mapper::Functions, default: -> {}

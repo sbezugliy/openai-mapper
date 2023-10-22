@@ -3,7 +3,7 @@
 module Openai
   module Mapper
     module Chat
-      class CompletionChunk < BaseMapper
+      class CompletionChunk < ::Openai::Mapper::BaseMapper
         attribute :id, ::Shale::Type::String
         attribute :object, ::Shale::Type::String
         attribute :created, ::Shale::Type::Time

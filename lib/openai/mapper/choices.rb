@@ -2,7 +2,7 @@
 
 module Openai
   module Mapper
-    class Choices < BaseMapper
+    class Choices < ::Openai::Mapper::BaseMapper
       attribute :index, ::Shale::Type::Integer
       attribute :finish_reason, ::Shale::Type::String
       attribute :logprobs, ::Shale::Type::String, default: -> {nil}

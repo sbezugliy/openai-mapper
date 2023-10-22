@@ -2,7 +2,7 @@
 
 module Openai
   module Mapper
-    class Message < BaseMapper
+    class Message < ::Openai::Mapper::BaseMapper
       attribute :role, ::Shale::Type::String
       attribute :content, ::Shale::Type::String, default: -> {}
       attribute :function_call, ::Openai::Mapper::FunctionCall, default: -> {}

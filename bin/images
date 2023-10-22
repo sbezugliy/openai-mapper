@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "openai"
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+dalle = Openai::Images::Create.new
+dalle.request(
+  prompt: "Create banner image, poster, wallpapper for 'ApexAxis' company with next criterios: apex axis, hight tech, research and development, neural networks, pyramid, data flows, energy flows, growth, bright, human",
+  n: 5,
+  size: "1024x1024",
+  user: "s.bezugliy@codenv.top",
+  response_format: "b64_json"
+)
+
+pp chat.data.inspect
+
+

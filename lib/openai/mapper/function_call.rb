@@ -2,7 +2,7 @@
 
 module Openai
   module Mapper
-    class FunctionCall < BaseMapper
+    class FunctionCall < ::Openai::Mapper::BaseMapper
       attribute :name, ::Shale::Type::String, default: -> {}
       attribute :arguments, ::Shale::Type::String, default: -> {}
 

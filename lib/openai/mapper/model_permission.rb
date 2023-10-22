@@ -2,7 +2,7 @@
 
 module Openai
   module Mapper
-    class ModelPermission < BaseMapper
+    class ModelPermission < ::Openai::Mapper::BaseMapper
       attribute :id, ::Shale::Type::String
       attribute :object, ::Shale::Type::String
       attribute :created, ::Shale::Type::Time

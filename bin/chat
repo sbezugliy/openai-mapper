@@ -1,0 +1,117 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "openai"
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+chat = Openai::Chat::Completions.new
+chat.request(
+  model: "gpt-3.5-turbo",
+  messages: (
+    [
+      Openai::Mapper::Message.new(
+        role: "system",
+        content: "Hi."
+      ),
+      Openai::Mapper::Message.new(
+        role: "user",
+        content: "Hello!"
+      )
+    ]
+  )
+)
+
+pp chat.data.choices.last.message.content
+
+chat.request(
+  model: "gpt-3.5-turbo",
+  messages: (
+    [
+      Openai::Mapper::Message.new(
+        role: "system",
+        content: chat.data.choices.last.message.content
+      ),
+      Openai::Mapper::Message.new(
+        role: "user",
+        content: "Who is John Galt?"
+      )
+    ]
+  )
+)
+
+pp chat.data.choices.last.message.content
+
+chat.request(
+  model: "gpt-3.5-turbo",
+  messages: (
+    [
+      Openai::Mapper::Message.new(
+        role: "system",
+        content: chat.data.choices.last.message.content
+      ),
+      Openai::Mapper::Message.new(
+        role: "user",
+        content: "Provide me with a summary about the topic."
+      )
+    ]
+  )
+)
+
+pp chat.data.choices.last.message.content
+
+chat.request(
+  model: "gpt-3.5-turbo",
+  messages: (
+    [
+      Openai::Mapper::Message.new(
+        role: "system",
+        content: chat.data.choices.last.message.content
+      ),
+      Openai::Mapper::Message.new(
+        role: "user",
+        content: "How many times I did ask you about John Galt today and in the current messaging thread."
+      )
+    ]
+  )
+)
+
+pp chat.data.choices.last.message.content
+
+chat.request(
+  model: "gpt-3.5-turbo",
+  messages: (
+    [
+      Openai::Mapper::Message.new(
+        role: "system",
+        content: chat.data.choices.last.message.content
+      ),
+      Openai::Mapper::Message.new(
+        role: "user",
+        content: "I'm programmer. And currently developing client and mapping ORM to speak with you. What fields I should to keep or provide in the each request to keep solid messaging queue or thread."
+      )
+    ]
+  )
+)
+
+pp chat.data.choices.last.message.content
+
+chat.request(
+  model: "gpt-3.5-turbo",
+  messages: (
+    [
+      Openai::Mapper::Message.new(
+        role: "system",
+        content: chat.data.choices.last.message.content
+      ),
+      Openai::Mapper::Message.new(
+        role: "user",
+        content: "Why AI generates images with people where fingers rendered as tentacles? ))"
+      )
+    ]
+  )
+)
+
+pp chat.data.choices.last.message.content

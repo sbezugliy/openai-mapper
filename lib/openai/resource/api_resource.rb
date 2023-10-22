@@ -11,7 +11,7 @@ module Openai
         @connection = Excon.new(BASE_URL, headers: headers)
       end
 
-      def resource
+      def request
         parse_body
       end
 
