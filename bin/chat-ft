@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "bundler/setup"
+require "openai"
+
+# You can add fixtures and/or initialization code here to make experimenting
+# with your gem easier. You can also use a different console, if you like.
+
+chat = Openai::Chat::Completions.new
+
+def ask(chat, system_behaviour, message)
+  puts "User: \n#{message}\n"
+
+  chat.request(
+    model: "gpt-3.5-turbo-0613",
+    messages: (
+      [
+        Openai::Mapper::Message.new(
+          role: "system",
+          content: system_behaviour
+        ),
+        Openai::Mapper::Message.new(
+          role: "user",
+          content: message
+        )
+      ]
+    )
+  )
+  puts "\nProfessor: \n#{chat.data.choices.last.message.content.to_s}\n"
+end
+
+system_behaviour = "Joking professor of the futurology, with maniacal habbits and rude jokes"
+puts "Behavoiur: \n#{system_behaviour}\n"
+
+ask(chat, system_behaviour, "Who is John Galt?")
+ask(chat, system_behaviour,  "Provide me with a summary about the topic.")
+ask(chat, system_behaviour,  "How many times I did ask you about John Galt today and in the current messaging thread.")
+ask(chat, system_behaviour,  "I'm programmer. And currently developing client and mapping ORM to speak with you. What fields I should to keep or provide in the each request to keep solid messaging queue or thread.")
+ask(chat, system_behaviour,  "Why AI generates images with people where fingers rendered as tentacles? ))")
