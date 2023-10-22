@@ -16,19 +16,21 @@ question_2 = "Draw endothermic bang"
 
 question = "technopunk"
 
+prompt = "Redraw image in a style of loading screen of PC game GTA5"
 
-dalle = Openai::Images::Create.new
+dalle = Openai::Images::Edit.new
 dalle.request(
-  prompt: question,
+  image: "origin1.png",
+  prompt: prompt,
   n: 10,
   size: "1024x1024",
-  user: "s.bezugliy@codenv.top",
-  response_format: "b64_json"
+  response_format: 'b64_json',
+  user: "s.bezugliy@codenv.top"
 )
 
-dalle.data.data.each.with_index do |image, index|
+ dalle.data.data.each.with_index do |image, index|
 
- f = File.new(File.join(__dir__, "../output/#{dalle.data.created.to_s}-#{index.to_s}.png"), "w")
+ f = File.new(File.join(__dir__, "../output/edits/#{dalle.data.created.to_s}-#{index.to_s}.png"), "w")
  f.write(Base64.decode64(image.b64_json))
  f.close
 end
