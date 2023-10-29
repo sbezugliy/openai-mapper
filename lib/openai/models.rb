@@ -1,7 +1,7 @@
 # typed: false
 
 module Openai
-  class Models < ::Openai::Resource::ApiResource
+  class Models < ::Openai::Resource::Api
     def initialize
       @path = "/v1/models"
       super()

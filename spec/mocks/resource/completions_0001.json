@@ -1,0 +1,21 @@
+{
+  "id": "chatcmpl-8EwrQEw3dxpnPxalQhjoqljGS46NW",
+  "object": "chat.completion",
+  "created": 1698573544,
+  "model": "gpt-3.5-turbo-0613",
+  "choices": [
+    {
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Hello there! How can"
+      },
+      "finish_reason": "length"
+    }
+  ],
+  "usage": {
+    "prompt_tokens": 33,
+    "completion_tokens": 5,
+    "total_tokens": 38
+  }
+}

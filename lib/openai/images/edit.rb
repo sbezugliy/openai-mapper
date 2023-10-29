@@ -1,6 +1,6 @@
 module Openai
   module Images
-    class Edit < ::Openai::Resource::ApiResource
+    class Edit < ::Openai::Resource::Api
       def initialize
         @path = "/v1/images/edits"
         @file_source = ::File.join(__dir__, "../../../input/")
@@ -16,8 +16,6 @@ module Openai
           headers: multipart_headers,
           body: multipart_body(::Openai::Request::Images::Edit.new(**request))
         ).tap {|r| puts r}
-        puts @connection.inspect
-        puts @response.inspect
         @data = ::Openai::Mapper::Images::List.from_json(@response.body)
       end
 
@@ -31,7 +29,6 @@ module Openai
       end
 
       def multipart_body(request)
-        puts request.inspect
         body      = ''
         body << multipart_attachment("image/png", "image", "image.png", ::File.open(::File.join(@file_source, request.image), "r").read)
         body << multipart_attachment("image/png", "mask", "mask.png", ::File.open(::File.join(@file_source, request.mask), "r").read) if request.mask

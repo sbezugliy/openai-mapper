@@ -5,7 +5,7 @@ require 'securerandom'
 
 module Openai
   module Resource
-    class ApiResource
+    class Api
       attr_reader :connection, :path, :data, :response
 
       def initialize

@@ -1,6 +1,6 @@
 module Openai
   module File
-    class Create < ::Openai::Resource::ApiResource
+    class Create < ::Openai::Resource::Api
       def initialize
       end
 
