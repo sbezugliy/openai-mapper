@@ -1,4 +1,3 @@
-
 # typed: false
 
 module Openai
@@ -7,7 +6,6 @@ module Openai
       class List < ::Openai::Mapper::BaseMapper
         attribute :data, ::Openai::Mapper::Images::Image, collection: true
         attribute :created, ::Shale::Type::Time
-
 
         json do
           map "data", to: :data

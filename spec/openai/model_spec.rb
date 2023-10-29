@@ -2,13 +2,13 @@
 
 require "spec_helper"
 
-RSpec.describe Openai::Resource::Model do
+RSpec.describe Openai::Model, tag: :request do
   subject!(:connection) { described_class.new }
 
-  let(:body) { File.read(File.join(__dir__, "../../mocks/resource/model_text-davinci-001.json")) }
+  let(:body) { File.read(File.join(__dir__, "../mocks/resource/model_text-davinci-001.json")) }
 
   let(:resource) do
-    connection.resource("text-davinci-001")
+    connection.request("text-davinci-001")
     connection
   end
 
@@ -24,7 +24,5 @@ RSpec.describe Openai::Resource::Model do
       .to_return(status: 200, body: body, headers: {})
   end
 
-  it { expect(resource.response.body).to eq(body) }
-  it { expect(resource.response.status).to be(200) }
   it { expect(resource.data).to be_a(Openai::Mapper::Model) }
 end

@@ -6,22 +6,54 @@ on:
       - main
 
   pull_request:
-
+env:
+  CI: true
+  OPENAI_TOKEN: ${{ secrets.OPENAI_TOKEN }}
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    name: Ruby ${{ matrix.ruby }}
+  lint:
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        ruby:
-          - '3.2.2'
-
+        os: [ubuntu-latest]
+        ruby: ['3.2.2']
+    env:
+      RAKE_ENV: development
+      RAILS_ENV: development
+      BUNDLER_ENV: development
+      SSH_AUTH_SOCK: /tmp/ssh_agent.sock
     steps:
-    - uses: actions/checkout@v3
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: ${{ matrix.ruby }}
-        bundler-cache: true
-    - name: Run the default task
-      run: bundle exec rake
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2.2'
+          bundler-cache: true
+          cache-version: 2
+      - name: Lint Ruby files
+        run: bundle exec rubocop
+
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        ruby: ['3.2.2']
+    env:
+      RAKE_ENV: test
+      RAILS_ENV: test
+      BUNDLER_ENV: test
+      SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Install Ruby and gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2.2'
+          bundler-cache: true
+          cache-version: 2
+      - name: Run tests
+        run: bundle exec rspec

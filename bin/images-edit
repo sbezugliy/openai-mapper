@@ -10,13 +10,7 @@ require "base64"
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
-question_1 = "Create banner image, poster, wallpapper without any text, only futuristic picture for 'ApexAxis' company with next criterios: apex axis, hight tech, research and development, neural networks, pyramid, data flows, energy flows, growth, bright, human"
-
-question_2 = "Draw endothermic bang"
-
-question = "technopunk"
-
-prompt = "Redraw image in a style of loading screen of PC game GTA5"
+prompt = "Добавь на фоне пейзажи Борисполя"
 
 dalle = Openai::Images::Edit.new
 dalle.request(
@@ -24,16 +18,12 @@ dalle.request(
   prompt: prompt,
   n: 10,
   size: "1024x1024",
-  response_format: 'b64_json',
+  response_format: "b64_json",
   user: "s.bezugliy@codenv.top"
 )
 
- dalle.data.data.each.with_index do |image, index|
-
- f = File.new(File.join(__dir__, "../output/edits/#{dalle.data.created.to_s}-#{index.to_s}.png"), "w")
- f.write(Base64.decode64(image.b64_json))
- f.close
+dalle.data.data.each.with_index do |image, index|
+  f = File.new(File.join(__dir__, "../output/edits/#{dalle.data.created}-#{index}.png"), "w")
+  f.write(Base64.decode64(image.b64_json))
+  f.close
 end
-
-
-

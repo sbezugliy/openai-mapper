@@ -1,11 +1,12 @@
+# typed: false
+
 module Openai
   module Images
-    class Create < ::Openai::Resource::ApiResource
+    class Create < ::Openai::Resource::Api
       def initialize
         @path = "/v1/images/generations"
         super()
       end
-
 
       def request(**request)
         @response = @connection.post(
