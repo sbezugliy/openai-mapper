@@ -5,10 +5,10 @@ module Openai
     class Choices < ::Openai::Mapper::BaseMapper
       attribute :index, ::Shale::Type::Integer
       attribute :finish_reason, ::Shale::Type::String
-      attribute :logprobs, ::Shale::Type::String, default: -> {nil}
-      attribute :delta, ::Openai::Mapper::Message, default: -> {nil}
-      attribute :text, ::Shale::Type::String, default: -> {nil}
-      attribute :message, ::Openai::Mapper::Message, default: -> {nil}
+      attribute :logprobs, ::Shale::Type::String, default: -> {}
+      attribute :delta, ::Openai::Mapper::Message, default: -> {}
+      attribute :text, ::Shale::Type::String, default: -> {}
+      attribute :message, ::Openai::Mapper::Message, default: -> {}
 
       json do
         map "index", to: :index

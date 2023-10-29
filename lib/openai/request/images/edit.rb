@@ -10,7 +10,7 @@ module Openai
         attribute :n, ::Shale::Type::Integer, default: -> { 1 }
         attribute :size, ::Shale::Type::String, default: -> { "1024x1024" }
         attribute :response_format, ::Shale::Type::String, default: -> { "url" }
-        attribute :user, ::Shale::Type::String, default: -> { nil }
+        attribute :user, ::Shale::Type::String, default: -> {}
       end
     end
   end

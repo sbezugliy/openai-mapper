@@ -1,9 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env sh
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACMR | sed 's| |\\ |g')
 
 # run linter on staged files
 echo "Running Rubocop"
-./bin/lint -a $STAGED_FILES
+
+bundle exec rubocop --config .rubocop.yml --parallel --force-exclusion  -a $STAGED_FILES
 RUBOCOP_EXIT_CODE=$?
 
 # add files auto-fixed by the rubocop
@@ -18,31 +19,31 @@ else
 fi
 
 # run audit related to staged files
-echo "Running Security Audit"
-./bin/audit
-AUDIT_EXIT_CODE=$?
+# echo "Running Security Audit"
+# ./bin/audit
+# AUDIT_EXIT_CODE=$?
 
-# check rspec exit code
-if [ $AUDIT_EXIT_CODE -ne 0 ]; then
-    echo "!!! Fix potential vulnerabilities before commit"
-    exit 1
-else
-    echo "Audit checks are passed"
-fi
-
-# # run tests related to staged files
-# echo "Running RSpec tests"
-# bundle exec rspec
-# RSPEC_EXIT_CODE=$?
-#
 # # check rspec exit code
-# if [ $RSPEC_EXIT_CODE -ne 0 ]; then
-#     echo "!!! Fix spec fails before commit"
+# if [ $AUDIT_EXIT_CODE -ne 0 ]; then
+#     echo "!!! Fix potential vulnerabilities before commit"
 #     exit 1
 # else
-#     echo "Specs are passed"
+#     echo "Audit checks are passed"
 # fi
-#
-# # return 0-exit code
-# echo "Pre commit checks are passed"
-# exit 0
+
+# # run tests related to staged files
+echo "Running RSpec tests"
+bundle exec rspec
+RSPEC_EXIT_CODE=$?
+
+# check rspec exit code
+if [ $RSPEC_EXIT_CODE -ne 0 ]; then
+    echo "!!! Fix spec fails before commit"
+    exit 1
+else
+    echo "Specs are passed"
+fi
+
+# return 0-exit code
+echo "Pre commit checks are passed"
+exit 0

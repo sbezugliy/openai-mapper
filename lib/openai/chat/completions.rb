@@ -1,3 +1,5 @@
+# typed: false
+
 module Openai
   module Chat
     class Completions < ::Openai::Resource::Api

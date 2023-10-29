@@ -10,7 +10,7 @@ require "openai"
 chat = Openai::Chat::Completions.new
 chat.request(
   model: "gpt-3.5-turbo",
-  messages: (
+  messages:
     [
       Openai::Mapper::Message.new(
         role: "system",
@@ -21,14 +21,13 @@ chat.request(
         content: "Hello!"
       )
     ]
-  )
 )
 
 pp chat.data.choices.last.message.content
 
 chat.request(
   model: "gpt-3.5-turbo",
-  messages: (
+  messages:
     [
       Openai::Mapper::Message.new(
         role: "system",
@@ -39,14 +38,13 @@ chat.request(
         content: "Who is John Galt?"
       )
     ]
-  )
 )
 
 pp chat.data.choices.last.message.content
 
 chat.request(
   model: "gpt-3.5-turbo",
-  messages: (
+  messages:
     [
       Openai::Mapper::Message.new(
         role: "system",
@@ -57,14 +55,13 @@ chat.request(
         content: "Provide me with a summary about the topic."
       )
     ]
-  )
 )
 
 pp chat.data.choices.last.message.content
 
 chat.request(
   model: "gpt-3.5-turbo",
-  messages: (
+  messages:
     [
       Openai::Mapper::Message.new(
         role: "system",
@@ -75,14 +72,13 @@ chat.request(
         content: "How many times I did ask you about John Galt today and in the current messaging thread."
       )
     ]
-  )
 )
 
 pp chat.data.choices.last.message.content
 
 chat.request(
   model: "gpt-3.5-turbo",
-  messages: (
+  messages:
     [
       Openai::Mapper::Message.new(
         role: "system",
@@ -93,14 +89,13 @@ chat.request(
         content: "I'm programmer. And currently developing client and mapping ORM to speak with you. What fields I should to keep or provide in the each request to keep solid messaging queue or thread."
       )
     ]
-  )
 )
 
 pp chat.data.choices.last.message.content
 
 chat.request(
   model: "gpt-3.5-turbo",
-  messages: (
+  messages:
     [
       Openai::Mapper::Message.new(
         role: "system",
@@ -111,7 +106,6 @@ chat.request(
         content: "Why AI generates images with people where fingers rendered as tentacles? ))"
       )
     ]
-  )
 )
 
 pp chat.data.choices.last.message.content
