@@ -28,6 +28,6 @@ RSpec.configure do |config|
   config.before request: true do
     # WebMock.disable!
     WebMock.disable_net_connect!(allow_localhost: true)
-    stub_request(:any, OPENAI_URL).with(token_auth: [OPENAI_TOKEN])
+    # stub_request(:any, OPENAI_URL).with(token_auth: [OPENAI_TOKEN])
   end
 end
