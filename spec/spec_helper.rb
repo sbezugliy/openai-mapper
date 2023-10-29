@@ -1,7 +1,7 @@
 # typed: false
 # frozen_string_literal: true
 
-# require "webmock/rspec"
+require "webmock/rspec"
 
 require "openai"
 
@@ -25,10 +25,10 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 
-  # config.before request: true do
-  #   WebMock.disable_net_connect!(allow_localhost: true)
-  #   stub_request(:any, OPENAI_URL).with(token_auth: [OPENAI_TOKEN])
-  # end
+  config.before request: true do
+    WebMock.disable_net_connect!(allow_localhost: true)
+    stub_request(:any, OPENAI_URL).with(token_auth: [OPENAI_TOKEN])
+  end
   #
   # config.after request: true do
   #   WebMock.enable_net_connect!(allow_localhost: true)

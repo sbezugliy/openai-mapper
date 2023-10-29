@@ -1,21 +1,21 @@
 # typed: false
 
-RSpec.describe Openai::Mapper::Chat::Request, tag: :mapper do
+RSpec.describe Openai::Chat::Completions, tag: :mapper do
   subject(:mapping) { described_class.new(**params) }
 
   let(:params) do
     {
       model: "gpt-3.5-turbo",
-      messages: [
-        ::Openai::Mapper::Message.new(
+      messages: ([
+        Openai::Mapper::Message.new(
           role: "system",
-          content: "Hello from openai-mapper: https://github.com/sbezugliy/openai-mapper"
+          content: "Hi."
         ),
-        ::Openai::Mapper::Message.new(
+        Openai::Mapper::Message.new(
           role: "user",
           content: "Hello!"
         )
-      ]
+      ])
     }
   end
 
