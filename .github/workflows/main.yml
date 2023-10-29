@@ -8,6 +8,7 @@ on:
   pull_request:
 env:
   CI: true
+  OPENAI_TOKEN: ${{ secrets.OPENAI_TOKEN }}
 jobs:
   lint:
     runs-on: ${{ matrix.os }}
