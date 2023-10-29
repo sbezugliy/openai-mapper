@@ -16,7 +16,7 @@ question_2 = "Draw endothermic bang"
 
 question = "technopunk"
 
-prompt = "Redraw image in a style of loading screen of PC game GTA5"
+prompt = "Добавь на фоне пейзажи Борисполя"
 
 dalle = Openai::Images::Edit.new
 dalle.request(
