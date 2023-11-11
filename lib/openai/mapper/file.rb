@@ -3,17 +3,25 @@
 module Openai
   module Mapper
     class File < ::Openai::Mapper::BaseMapper
+      attribute :id, ::Shale::Type::String
+      attribute :object, ::Shale::Type::String, default: -> { "file" }
+      attribute :bytes, ::Shale::Type::Integer
+      attribute :created_at, ::Shale::Type::Time
+      attribute :filename, ::Shale::Type::String
+      attribute :purpose, ::Shale::Type::String
+      attribute :status, ::Shale::Type::String, default: -> {}
+      attribute :status_details, ::Shale::Type::String, default: -> {}
+
+      json do
+        map "id", to: :id
+        map "object", to: :object
+        map "bytes", to: :bytes
+        map "created_at", to: :created_at
+        map "filename", to: :filename
+        map "purpose", to: :purpose
+        map "status", to: :status
+        map "status_details", to: :status_details
+      end
     end
   end
 end
-
-# {
-# "id": "file-abc123",
-# "object": "file",
-# "bytes": 120000,
-# "created_at": 1677610602,
-# "filename": "my_file.jsonl",
-# "purpose": "fine-tune",
-# "status": "uploaded",
-# "status_details": null
-# }
