@@ -16,7 +16,7 @@ module Openai
         map "id", to: :id
         map "object", to: :object
         map "bytes", to: :bytes
-        map "created_at", to: :created_at
+        map "created_at", using: {from: :from_timestamp, to: :to_timestamp}
         map "filename", to: :filename
         map "purpose", to: :purpose
         map "status", to: :status
