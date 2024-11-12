@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   spec.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").reject do |f|
-      (File.expand_path(f) == __FILE__) ||
+      f.end_with?(".gem") || (File.expand_path(f) == __FILE__) ||
         f.start_with?(*%w[bin/ test/ spec/ features/ .git .circleci appveyor Gemfile output])
     end
   end
@@ -49,16 +49,16 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop", "~> 1.56.0"
   spec.add_development_dependency "rubocop-capybara"
   spec.add_development_dependency "rubocop-factory_bot"
-  spec.add_development_dependency "rubocop-performance", "~> 1.18.0"
+  spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "rubocop-rake"
   spec.add_development_dependency "rubocop-rspec"
   spec.add_development_dependency "rubocop-packs"
   spec.add_development_dependency "simplecov"
-  spec.add_development_dependency "standard", "~> 1.30"
-  spec.add_development_dependency "standard-performance", "~> 1.1.0"
+  spec.add_development_dependency "standard"
+  spec.add_development_dependency "standard-performance"
   spec.add_development_dependency "shoulda-matchers"
   spec.add_development_dependency "webmock"
-  spec.add_development_dependency "async-rspec", "~> 1.2"
+  spec.add_development_dependency "async-rspec"
 
   spec.add_development_dependency "bundler-audit"
   spec.add_development_dependency "dawnscanner"

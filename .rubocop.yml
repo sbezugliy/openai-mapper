@@ -17,7 +17,6 @@ require:
   - rubocop-rspec
   - rubocop-rake
   - rubocop-performance
-  - rubocop-packs
 
 inherit_gem:
   standard: config/base.yml
