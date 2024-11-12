@@ -7,13 +7,14 @@ Gem::Specification.new do |spec|
   spec.version = Openai::VERSION
   spec.authors = ["Sergey Bezugliy"]
   spec.email = ["s.bezugliy@gmail.com"]
+  spec.licenses    = ['MIT']
 
   spec.summary = "OpenAI resources API client and object mapper"
   spec.description = "OpenAI resources API client and object mapper"
   spec.homepage = "https://github.com/sbezugliy/openai-mapper"
   spec.required_ruby_version = ">= 2.6.0"
 
-  spec.metadata["allowed_push_host"] = "https://github.com"
+  spec.metadata["allowed_push_host"] = "https://rubygems.org/"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/sbezugliy/openai-mapper"
@@ -24,7 +25,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir.chdir(__dir__) do
     `git ls-files -z`.split("\x0").reject do |f|
       (File.expand_path(f) == __FILE__) ||
-        f.start_with?(*%w[bin/ test/ spec/ features/ .git .circleci appveyor Gemfile])
+        f.start_with?(*%w[bin/ test/ spec/ features/ .git .circleci appveyor Gemfile output])
     end
   end
   spec.bindir = "exe"
