@@ -9,6 +9,7 @@ module Openai
         attribute :n, ::Shale::Type::Integer, default: -> { 1 }
         attribute :size, ::Shale::Type::String, default: -> {}
         attribute :user, ::Shale::Type::String, default: -> {}
+        attribute :model, ::Shale::Type::String, default: -> { "dall-e-2" }
       end
     end
   end

@@ -10,15 +10,16 @@ require "base64"
 # You can add fixtures and/or initialization code here to make experimenting
 # with your gem easier. You can also use a different console, if you like.
 
-question = "technopunk"
+question = "generate close to real world distopy, reality and utopy at single image as gradient from left to right of "
 
 dalle = Openai::Images::Create.new
 dalle.request(
   prompt: question,
-  n: 10,
-  size: "1024x1024",
+  n: 1,
+  size: "1792x1024",
   user: "s.bezugliy@codenv.top",
-  response_format: "b64_json"
+  response_format: "b64_json",
+  model: "dall-e-3"
 )
 
 dalle.data.data.each.with_index do |image, index|
