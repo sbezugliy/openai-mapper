@@ -21,6 +21,7 @@ Shale.toml_adapter = Tomlib
 module Openai
   BASE_URL = "https://api.openai.com"
   ACCESS_TOKEN = ENV.fetch("OPENAI_TOKEN")
+  ORGANIZATION = ENV.fetch("OPENAI_ORGANIZATION")
 
   class Error < StandardError; end
 end
