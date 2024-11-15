@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = Openai::VERSION
   spec.authors = ["Sergey Bezugliy"]
   spec.email = ["s.bezugliy@gmail.com"]
-  spec.licenses    = ['MIT']
+  spec.licenses = ["MIT"]
 
   spec.summary = "OpenAI resources API client and object mapper"
   spec.description = "OpenAI resources API client and object mapper"
@@ -52,7 +52,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rubocop-performance"
   spec.add_development_dependency "rubocop-rake"
   spec.add_development_dependency "rubocop-rspec"
-  spec.add_development_dependency "rubocop-packs"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "standard"
   spec.add_development_dependency "standard-performance"

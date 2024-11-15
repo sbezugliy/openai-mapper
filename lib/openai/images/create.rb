@@ -8,10 +8,10 @@ module Openai
         super()
       end
 
-      def request(**request)
+      def request(**)
         @response = @connection.post(
           path: @path,
-          body: ::Openai::Request::Images::Create.new(**request).to_json
+          body: ::Openai::Request::Images::Create.new(**).to_json
         )
         @data = ::Openai::Mapper::Images::List.from_json(@response.body)
       end

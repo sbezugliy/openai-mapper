@@ -17,7 +17,7 @@ RSpec.describe Openai::Models, tag: :request do
         headers: {
           "Authorization" => "Bearer #{OPENAI_TOKEN}",
           "Content-Type" => "application/json",
-          "Host" => "api.openai.com:443"
+          "Host" => "api.openai.com"
         }
       )
       .to_return(status: 200, body: body, headers: {})

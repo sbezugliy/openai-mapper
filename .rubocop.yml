@@ -29,11 +29,11 @@ AllCops:
     - vendor/**/*
   TargetRubyVersion: 3.2
   NewCops: enable
-  
+
 
 RSpec:
   Enabled: true # enable rubocop-rspec cops
-  
+
 RSpec/DescribeClass:
   Enabled: false # ignore missing comments on classes
 
