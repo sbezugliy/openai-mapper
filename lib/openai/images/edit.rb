@@ -10,11 +10,11 @@ module Openai
         super()
       end
 
-      def request(**params)
+      def request(**)
         @response = @connection.post(
           path: @path,
           headers: multipart_headers,
-          body: multipart_body(::Openai::Request::Images::Edit.new(**params))
+          body: multipart_body(::Openai::Request::Images::Edit.new(**))
         ).tap { |r| puts r }
         @data = ::Openai::Mapper::Images::List.from_json(@response.body)
       end

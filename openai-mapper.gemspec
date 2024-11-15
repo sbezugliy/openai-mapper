@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version = Openai::VERSION
   spec.authors = ["Sergey Bezugliy"]
   spec.email = ["s.bezugliy@gmail.com"]
-  spec.licenses    = ['MIT']
+  spec.licenses = ["MIT"]
 
   spec.summary = "OpenAI resources API client and object mapper"
   spec.description = "OpenAI resources API client and object mapper"
