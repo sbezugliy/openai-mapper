@@ -93,7 +93,7 @@ end
 #### Edit Image with text instructions
 
 ```Ruby
-question = "Replace Dart Waider head with a charcoal teapot"
+question = "Replace heads with a teapot"
 
 dalle = Openai::Images::Edit.new
 dalle.request(
