@@ -72,12 +72,12 @@ JSON answer object example:
 Image may be generated as an `base64` binary and image file.
 
 ```Ruby
-question = "technopunk"
+question = "technowizard"
 
 dalle = Openai::Images::Create.new
 dalle.request(
   prompt: question,
-  n: 10,
+  n: 1,
   size: "1024x1024",
   user: "s.bezugliy@codenv.top",
   response_format: "b64_json"

@@ -13,3 +13,4 @@
 .env
 .diffend.yml
 *.lock
+*.gem
